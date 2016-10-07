@@ -82,3 +82,13 @@ t_list		*list_insert_before(t_list *org, t_list *ptr, void *member, size_t size)
 	n_member->head = org;
 	return org;
 }
+
+size_t		list_size(t_list *list) {
+	size_t		i;
+	t_list		*tmp;
+
+	if (!list)
+		return 0;
+	for (tmp = list, i = 0; tmp; tmp = tmp->next, i++);
+	return i;
+}
