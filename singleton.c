@@ -33,4 +33,3 @@ t_list		*singleton_lists(u_char list_type, t_list *ptr) {
 	}
 	return 0x0;
 }
-

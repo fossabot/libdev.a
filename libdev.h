@@ -3,6 +3,10 @@
 # include <stdlib.h>
 # include <assert.h>
 # include <string.h>
+# include <execinfo.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include <unistd.h>
 
 /* DEFINES */
 # define list_add(ptr, member, sizeZ) ptr = list_add_member(ptr, member, sizeZ);
@@ -20,6 +24,8 @@
 # define list_add_after(org_list, p_tr1, p_tr2, sizeZ) org_list = list_insert_after(org_list, p_tr1, p_tr2, sizeZ);
 
 # define list_add_before(org_list, p_tr1, p_tr2, sizeZ) org_list = list_insert_before(org_list, p_tr1, p_tr2, sizeZ);
+
+# define BACKTRACE_SIZE 10
 
 /* TYPEDEFS */
 // Signed
@@ -60,5 +66,10 @@ size_t		list_size(t_list *list);
 
 // singleton.c
 t_list		*singleton_lists(u_char list_type, t_list *ptr);
+
+// print.c
+void		error(char *str, ...);
+void		info(char *str, ...);
+void		warning(char *str, ...);
 
 #endif /* __LIBDEV__ */
