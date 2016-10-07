@@ -27,6 +27,16 @@
 
 # define BACKTRACE_SIZE 10
 
+#define L_ASSERT(condition)\
+{\
+	if (!condition) {\
+		fprintf(stderr, "Assertion (%s) failed at %s:%d\n", #condition, __FILE__, __LINE__);\
+		fprintf(stderr, "Function: %s\n", __FUNCTION__);\
+		fprintf(stderr, "Backtrace:\n");\
+		print_trace();\
+	}\
+}
+
 /* TYPEDEFS */
 // Signed
 typedef signed char			s8_t;
@@ -71,5 +81,6 @@ t_list		*singleton_lists(u_char list_type, t_list *ptr);
 void		error(char *str, ...);
 void		info(char *str, ...);
 void		warning(char *str, ...);
+void		print_trace(void);
 
 #endif /* __LIBDEV__ */
