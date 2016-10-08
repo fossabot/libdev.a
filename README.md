@@ -1,7 +1,17 @@
 <h1 align="center">LIB DEV C</h1>
 <p align="center">A small developer library with some helpers in it.</p>
 
-## Usage and installation
+<p align="center">                                                              
+  <b>Summary</b><br>
+  • <a href="https://github.com/Ne02ptzero/libdevc#linked-lists">Linked Lists</a><br>
+  • <a href="https://github.com/Ne02ptzero/libdevc#type-definitions">Types Definitions</a><br>
+  • <a href="https://github.com/Ne02ptzero/libdevc#singletons">Singletons</a><br>
+  • <a href="https://github.com/Ne02ptzero/libdevc#print-helpers">Print Helpers</a><br>
+  • <a href="https://github.com/Ne02ptzero/libdevc#assertions">Assertions</a><br>
+</p>  
+
+
+## Usage & Installation
 ### Clone the repository
 ```
 git clone https://github.com/Ne02ptzero/libdevc
