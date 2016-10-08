@@ -1,8 +1,8 @@
 <p align="center">
 <img src=".pic.png" /><br />
-<img src="https://img.shields.io/badge/language-C-blue.svg"/> 
-<img src="https://img.shields.io/badge/license-Apashe--2.0-yellow.svg" /> 
-<img src="https://img.shields.io/badge/build-passed-brightgreen.svg" />
+<img src="https://img.shields.io/badge/language-C-blue.svg"/> &nbsp;
+<img src="https://img.shields.io/badge/license-Apashe--2.0-yellow.svg" /> &nbsp;
+<img src="https://img.shields.io/badge/build-passed-brightgreen.svg" />&nbsp;
 <img src="https://img.shields.io/badge/tests-100%25-green.svg" /> 
 </p>
 
