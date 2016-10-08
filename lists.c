@@ -5,7 +5,7 @@ t_list		*list_add_member(t_list *list, void *member, size_t size) {
 
 	n_member = malloc(sizeof(t_list));
 	n_member->member = malloc(size);
-	assert(n_member && n_member->member);
+	L_ASSERT(n_member && n_member->member);
 	memcpy(n_member->member, member, size);
 	n_member->size = size;
 	n_member->next = n_member->prev = 0x0;
@@ -34,7 +34,7 @@ t_list		*list_insert_after(t_list *org, t_list *ptr, void *member, size_t size) 
 
 	n_member = malloc(sizeof(t_list));
 	n_member->member = malloc(size);
-	assert(n_member && n_member->member);
+	L_ASSERT(n_member && n_member->member);
 	memcpy(n_member->member, member, size);
 	n_member->size = size;
 	n_member->next = n_member->prev = 0x0;
@@ -61,7 +61,7 @@ t_list		*list_insert_before(t_list *org, t_list *ptr, void *member, size_t size)
 
 	n_member = malloc(sizeof(t_list));
 	n_member->member = malloc(size);
-	assert(n_member && n_member->member);
+	L_ASSERT(n_member && n_member->member);
 	memcpy(n_member->member, member, size);
 	n_member->size = size;
 	n_member->next = n_member->prev = 0x0;

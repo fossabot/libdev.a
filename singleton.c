@@ -8,6 +8,7 @@ t_list		*singleton_lists(u_char list_type, t_list *ptr) {
 	if (ptr) {
 		if (!list_size(index)) {
 			member = malloc(sizeof(t_singleton));
+			L_ASSERT(member);
 			member->ptr = ptr;
 			member->type = list_type;
 			list_add(index, member, sizeof(t_singleton));
@@ -19,6 +20,7 @@ t_list		*singleton_lists(u_char list_type, t_list *ptr) {
 				}
 			}
 			member = malloc(sizeof(t_singleton));
+			L_ASSERT(member);
 			member->ptr = ptr;
 			member->type = list_type;
 			list_add(index, member, sizeof(t_singleton));

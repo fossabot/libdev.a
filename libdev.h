@@ -1,7 +1,6 @@
 #ifndef __LIBDEV__
 # define __LIBDEV__
 # include <stdlib.h>
-# include <assert.h>
 # include <string.h>
 # include <execinfo.h>
 # include <stdarg.h>
@@ -30,9 +29,9 @@
 #define L_ASSERT(condition)\
 {\
 	if (!condition) {\
-		fprintf(stderr, "Assertion (%s) failed at %s:%d\n", #condition, __FILE__, __LINE__);\
-		fprintf(stderr, "Function: %s\n", __FUNCTION__);\
-		fprintf(stderr, "Backtrace:\n");\
+		warning("Assertion (%s) failed at %s:%d\n", #condition, __FILE__, __LINE__);\
+		warning("Function: %s\n", __FUNCTION__);\
+		warning("Backtrace:\n");\
 		print_trace();\
 	}\
 }

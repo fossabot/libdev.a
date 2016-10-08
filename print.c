@@ -17,12 +17,12 @@ void		print_trace(void) {
 void		error(char *str, ...) {
 	va_list		ap;
 
-	write(1, "\033[0;31m> \033[0m", 13);
+	write(2, "\033[0;31m> \033[0m", 13);
 	va_start(ap, str);
-	vprintf(str, ap);
+	vfprintf(stderr, str, ap);
 	if (str[strlen(str) - 1] != '\n')
-		printf("\n");
-	printf("\033[0;31m> Program must stop: Backtrace:\033[0m\n");
+		fprintf(stderr, "\n");
+	fprintf(stderr, "\033[0;31m> Program must stop: Backtrace:\033[0m\n");
 	print_trace();
 	_exit(1);
 }
@@ -38,7 +38,7 @@ void		info(char *str, ...) {
 void		warning(char *str, ...) {
 	va_list		ap;
 
-	write(1, "\033[0;31m> \033[0m", 13);
+	write(2, "\033[0;31m> \033[0m", 13);
 	va_start(ap, str);
-	vprintf(str, ap);
+	vfprintf(stderr, str, ap);
 }
