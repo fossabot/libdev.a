@@ -1,6 +1,14 @@
-<h1 align="center">LIB DEV C</h1>
-<p align="center">A small developer library with some helpers in it.</p>
+<p align="center">
+<img src=".pic.png" />
+<img src="https://img.shields.io/badge/language-C-blue.svg"/> 
+<img src="https://img.shields.io/badge/license-Apashe--2.0-yellow.svg" /> 
+<img src="https://img.shields.io/badge/build-passed-brightgreen.svg" />
+<img src="https://img.shields.io/badge/tests-100%25-green.svg" /> 
+</p>
 
+-----------------------------------------------------------------
+
+<p align="center">A small developer library with some helpers in it.</p>
 <p align="center">                                                              
   <a href="#linked-lists">Linked Lists</a> • <a href="#type-definitions">Types Definitions</a> • <a href="#singletons">Singletons</a> • <a href="#print-helpers">Print Helpers</a> • <a href="#assertions">Assertions</a>
 </p>
