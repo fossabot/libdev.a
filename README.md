@@ -8,7 +8,7 @@
 
 -----------------------------------------------------------------
 
-<p align="center">A small developer library with some helpers in it.</p>
+<p align="center">A small developer library with some helpers in it</p>
 <p align="center">                                                              
   <a href="#linked-lists">Linked Lists</a> • <a href="#type-definitions">Types Definitions</a> • <a href="#singletons">Singletons</a> • <a href="#print-helpers">Print Helpers</a> • <a href="#assertions">Assertions</a>
 </p>
@@ -18,7 +18,7 @@
 ## Usage & Installation
 ### Clone the repository
 ```
-git clone https://github.com/Ne02ptzero/libdevc
+git clone https://github.com/Ne02ptzero/libdev.a
 ```
 ### Compile
 ```
@@ -26,7 +26,7 @@ make
 ```
 ### Use
 You'll need to include the header file in your project's code
-```
+```C
 #include <libdev.h>
 ```
 Compilation
