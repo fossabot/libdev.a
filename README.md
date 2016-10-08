@@ -2,13 +2,9 @@
 <p align="center">A small developer library with some helpers in it.</p>
 
 <p align="center">                                                              
-  <b>Summary</b><br>
-  • <a href="https://github.com/Ne02ptzero/libdevc#linked-lists">Linked Lists</a><br>
-  • <a href="https://github.com/Ne02ptzero/libdevc#type-definitions">Types Definitions</a><br>
-  • <a href="https://github.com/Ne02ptzero/libdevc#singletons">Singletons</a><br>
-  • <a href="https://github.com/Ne02ptzero/libdevc#print-helpers">Print Helpers</a><br>
-  • <a href="https://github.com/Ne02ptzero/libdevc#assertions">Assertions</a><br>
-</p>  
+  <a href="#linked-lists">Linked Lists</a> • <a href="#type-definitions">Types Definitions</a> • <a href="#singletons">Singletons</a> • <a href="#print-helpers">Print Helpers</a> • <a href="#assertions">Assertions</a>
+</p>
+
 
 
 ## Usage & Installation
