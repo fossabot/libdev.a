@@ -9,7 +9,7 @@
 
 <p align="center">A small developer library with some helpers in it</p>
 <p align="center">                                                              
-  <a href="#linked-lists">Linked Lists</a> • <a href="#type-definitions">Types Definitions</a> • <a href="#singletons">Singletons</a> • <a href="#print-helpers">Print Helpers</a> • <a href="#assertions">Assertions</a>
+  <a href="#linked-lists">Linked Lists</a> • <a href="#type-definitions">Types Definitions</a> • <a href="#singletons">Singletons</a> • <a href="#print-helpers">Print Helpers</a> • <a href="#assertions">Assertions</a> • <a href="#unit-tests">Unit Tests</a>
 </p>
 
 
@@ -117,6 +117,10 @@ Get the list size.
 list_tail(t_list *head_list, void *member); // MACRO
 ```
 Set the ```member``` pointer at the last entry in the ```head_list``` list.
+```C
+void	*list_get(t_list *list_head, void *ptr, size_t size);
+```
+Search into the ```list_head``` linked list, compare each ```member``` to ```ptr``` with ```memcmp```. Return the ```member``` if found, ```NULL``` if not. ```size``` is for memory comparation.
 ## Type definitions
 Types helpers in order to achieve easy bits / data manipulation
 
@@ -218,3 +222,112 @@ If the malloc failed, this is what the print look like:
 > ./a.out() [0x400b09]
 ```
 Note that if you want the function names in your backtrace, you _must_ compile your code with the ```-rdynamic``` flag.
+
+## Unit Tests
+### Declare a test
+#### Definition
+```C
+TEST(name); // MACRO
+```
+#### Example
+```C
+TEST(test_name) {
+	...
+}
+```
+#### Do the test
+Inside the test, you must use the ```T_ASSERT``` macro. Here's a simple example
+```C
+TEST(test_name) {
+	int	i = 1;
+	T_ASSERT(i == 1, "Bad initialization");
+	return TEST_SUCCESS;
+}
+```
+In this example, we are testing than ```i``` is equal to 1. In order to do that, we call ```T_ASSERT```. Same as ```L_ASSERT```, this macro return an error if the condition is wrong. But rather than quitting the program, it just return the error to the test handler. Here's an example output if the test failed:
+```
+> Testing test_name ...                            [ FAILED ]
+> 	Bad initialization: Test: 'i == 1', File main.c:33
+```
+As you see, the second parameter of the macro is the error returned if the test failed.
+
+You _must_ finish all of your tests with the ```TEST_SUCCESS``` macro, in order to inform the test handler that all went well.
+
+### Register a Test
+Your test is now declared, but you must register it to the test handler. In libdev.a, all the tests are registered in groups.
+#### Definition
+```C
+reg_test(group, name); // MACRO
+```
+#### Example
+If you want to register the ```test_name``` test, you must write this.
+```C
+reg_test("Test Group", test_name);
+```
+Groups are for ... grouped tests.
+### Launch a Group Test
+Now that all our tests are registered, time to launch them !
+#### Definition
+```C
+t_test_results	test_group(char *group); // FUNCTION
+```
+#### Example
+Here's how to launch:
+```C
+test_group("Test Group");
+```
+This function will run all the tests registered under the name ```Test Group```, in order of insertion.
+As you can see, this function return a structure. Here's the content:
+```C
+typedef struct		s_test_results {
+	size_t				success;
+	size_t				failed;
+	size_t				total;
+}					t_test_results;
+```
+Just a quick result of the tests. You can completly ignore it if you want to.
+
+Example output:
+```
+> ======================= GROUP Test Group TESTS =======================
+> Testing normal_test ...                             [ OK ]
+> Testing normal_test2 ...                            [ FAILED ]
+> 	Bad i: Test: 'i == 1', File main.c:12
+> Testing normal_test3 ...                            [ FAILED ]
+> 	Bad i: Test: 'i == 2', File main.c:19
+> Testing normal_test4 ...                            [ OK ]
+> Results: Total: 4, Success: 2, Failed: 2. COVERAGE: 50%
+```
+
+### Launch all the Tests
+#### Defintion
+```C
+void			test_all(void); // FUNCTION
+```
+#### Example
+The usage is pretty straightforward:
+```
+test_all();
+```
+This will launch all the group test, one by one, then print a result.
+
+Example output:
+```
+> ======================= GROUP Group TESTS =======================
+> Testing normal_test ...                             [ OK ]
+> Testing normal_test2 ...                            [ FAILED ]
+> 	Bad i: Test: 'i', File main.c:12
+> Testing normal_test3 ...                            [ FAILED ]
+> 	Bad i: Test: 'i', File main.c:19
+> Testing normal_test4 ...                            [ OK ]
+> Results: Total: 4, Success: 2, Failed: 2. COVERAGE: 50%
+> ======================= GROUP Group2 TESTS =======================
+> Testing normal_test5 ...                            [ FAILED ]
+> 	Bad i: Test: 'i', File main.c:33
+> Results: Total: 1, Success: 0, Failed: 1. COVERAGE: 0%
+
+> ============================= RESULTS =============================
+> TESTS SUCCESS:	2
+> TESTS FAILED:		3
+> TOTAL COVERAGE:	40%
+```
