@@ -6,6 +6,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <sys/types.h>
 
 /* DEFINES */
 # define list_add(ptr, member, sizeZ) ptr = list_add_member(ptr, member, sizeZ);
