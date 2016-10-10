@@ -65,9 +65,13 @@ void		test_all(void) {
 			list_add(groups, ptr->group, strlen(ptr->group));
 		}
 	}
-	printf("\n");
-	info("============================= RESULTS =============================\n");
-	info("\033[1;32mTESTS SUCCESS\033[0m:\t%d\n", success);
-	info("\033[1;31mTESTS FAILED\033[0m:\t\t%d\n", failed);
-	info("\033[1;34mTOTAL COVERAGE\033[0m:\t%d%%\n", (success * 100) / total);
+	if (!total)
+		warning("No tests registered, skipping.");
+	else {
+		printf("\n");
+		info("============================= RESULTS =============================\n");
+		info("\033[1;32mTESTS SUCCESS\033[0m:\t%d\n", success);
+		info("\033[1;31mTESTS FAILED\033[0m:\t\t%d\n", failed);
+		info("\033[1;34mTOTAL COVERAGE\033[0m:\t%d%%\n", (success * 100) / total);
+	}
 }
