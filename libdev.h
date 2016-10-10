@@ -26,7 +26,7 @@
 
 # define BACKTRACE_SIZE 10
 
-#define L_ASSERT(condition)\
+# define L_ASSERT(condition)\
 {\
 	if (!condition) {\
 		warning("Assertion (%s) failed at %s:%d\n", #condition, __FILE__, __LINE__);\
@@ -35,6 +35,18 @@
 		print_trace();\
 	}\
 }
+
+# define TEST(name) char		*test_##name(void)
+# define reg_test(group, name) register_test(group, &test_##name, #name);
+# define T_ASSERT(condition, error_name) {\
+	if (!condition) {\
+		char	*ret = malloc(250);\
+		sprintf(ret, "\t%s: Test: '%s', File %s:%d", error_name, #condition, __FILE__, __LINE__);\
+		return (ret);\
+	}\
+}
+# define TESTS_LIST 0x1
+# define TEST_SUCCESS 0x0
 
 /* TYPEDEFS */
 // Signed
@@ -48,7 +60,6 @@ typedef unsigned char		u8_t;
 typedef unsigned short		u16_t;
 typedef unsigned int		u32_t;
 typedef unsigned long long	u64_t;
-
 
 /* STRUCTS */
 typedef struct		s_list {
@@ -64,6 +75,18 @@ typedef struct		s_singleton {
 	t_list				*ptr;		// Actual pointer to the list
 }					t_singleton;
 
+typedef struct		s_test {
+	char				*(*fn_test)(void);
+	char				*group;
+	char				*name;
+}					t_test;
+
+typedef struct		s_test_results {
+	size_t				success;
+	size_t				failed;
+	size_t				total;
+}					t_test_results;
+
 
 /* FUNCTIONS DEFINITIONS */
 // lists.c
@@ -72,6 +95,7 @@ t_list		*list_get_last(t_list *list);
 t_list		*list_insert_after(t_list *org, t_list *ptr, void *member, size_t size);
 t_list		*list_insert_before(t_list *org, t_list *ptr, void *member, size_t size);
 size_t		list_size(t_list *list);
+void		*list_get(t_list *list, void *ptr, size_t size);
 
 // singleton.c
 t_list		*singleton_lists(u_char list_type, t_list *ptr);
@@ -81,5 +105,9 @@ void		error(char *str, ...);
 void		info(char *str, ...);
 void		warning(char *str, ...);
 void		print_trace(void);
+
+// tests.c
+void			register_test(char *group, char *(*test)(void), char *name);
+t_test_results	test_group(char *group);
 
 #endif /* __LIBDEV__ */

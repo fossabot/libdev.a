@@ -92,3 +92,16 @@ size_t		list_size(t_list *list) {
 	for (tmp = list, i = 0; tmp; tmp = tmp->next, i++);
 	return i;
 }
+
+void		*list_get(t_list *list, void *member, size_t size) {
+	t_list		*tmp;
+	void		*ptr;
+
+	if (!list)
+		return 0x0;
+	list_for_each(list, tmp, ptr) {
+		if (!memcmp(ptr, member, size))
+			return ptr;
+	}
+	return 0x0;
+}
