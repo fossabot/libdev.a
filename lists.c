@@ -3,6 +3,8 @@
 t_list		*list_add_member(t_list *list, void *member, size_t size) {
 	t_list		*n_member, *tmp;
 
+	if (!member || !size)
+		return 0x0;
 	n_member = malloc(sizeof(t_list));
 	n_member->member = malloc(size);
 	L_ASSERT(n_member && n_member->member);
@@ -50,6 +52,7 @@ t_list		*list_insert_after(t_list *org, t_list *ptr, void *member, size_t size) 
 		tmp2 = tmp->next;
 		tmp->next = n_member;
 		n_member->prev = tmp;
+		n_member->next = tmp2;
 		tmp2->prev = n_member;
 	}
 	n_member->head = org;

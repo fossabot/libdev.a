@@ -18,7 +18,7 @@
 			for (temp = list_get_last(org_list), p_tr = temp->member;\
 			temp != temp->head && (p_tr = temp->member); temp = temp->prev)
 
-# define list_tail(org_list, p_tr) ptr = list_get_last(org_list)->member;
+# define list_tail(org_list) list_get_last(org_list);
 
 # define list_add_after(org_list, p_tr1, p_tr2, sizeZ) org_list = list_insert_after(org_list, p_tr1, p_tr2, sizeZ);
 
@@ -109,5 +109,6 @@ void		print_trace(void);
 // tests.c
 void			register_test(char *group, char *(*test)(void), char *name);
 t_test_results	test_group(char *group);
+void			test_all(void);
 
 #endif /* __LIBDEV__ */

@@ -66,7 +66,7 @@ void		test_all(void) {
 		}
 	}
 	if (!total)
-		warning("No tests registered, skipping.");
+		warning("No tests registered, skipping.\n");
 	else {
 		printf("\n");
 		info("============================= RESULTS =============================\n");
