@@ -114,9 +114,9 @@ size_t		list_size(t_list *list); // Function
 ```
 Get the list size.
 ```C
-list_tail(t_list *head_list, void *member); // MACRO
+list_tail(t_list *head_list); // MACRO
 ```
-Set the ```member``` pointer at the last entry in the ```head_list``` list.
+Return the last ```t_list *``` entry in ```head_list```.
 ```C
 void	*list_get(t_list *list_head, void *ptr, size_t size);
 ```
