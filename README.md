@@ -292,14 +292,19 @@ Just a quick result of the tests. You can completly ignore it if you want to.
 
 Example output:
 ```
-> ======================= GROUP Test Group TESTS =======================
-> Testing normal_test ...                             [ OK ]
-> Testing normal_test2 ...                            [ FAILED ]
-> 	Bad i: Test: 'i == 1', File main.c:12
-> Testing normal_test3 ...                            [ FAILED ]
-> 	Bad i: Test: 'i == 2', File main.c:19
-> Testing normal_test4 ...                            [ OK ]
-> Results: Total: 4, Success: 2, Failed: 2. COVERAGE: 50%
+================================== linked_list ===================================
+> Testing list_add_null ...                                                 [ OK ]
+> Testing list_add_member ...                                               [ OK ]
+> Testing list_add_member_head_list ...                                     [ OK ]
+> Testing list_add_member_test_multiples ...                                [ FAILED ]
+> 	Head pointer is not right: Test: '!(ptr->next->head == ptr)', File main.c:48
+> Testing list_for_each ...                                                 [ OK ]
+> Testing list_tail ...                                                     [ OK ]
+> Testing list_add_after ...                                                [ OK ]
+> Testing list_add_before ...                                               [ OK ]
+> Testing list_for_each_rev ...                                             [ OK ]
+> Testing list_size ...                                                     [ OK ]
+> Results: Total: 10, Success: 9, Failed: 1. COVERAGE: 90%
 ```
 
 ### Launch all the Tests
