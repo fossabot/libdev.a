@@ -45,7 +45,7 @@ TEST(list_add_member_test_multiples) {
 	list_add(ptr, test2, 9);
 	T_ASSERT(!strcmp(ptr->next->member, "Hello2 !\n"), "Member have an unexpected value.");
 	T_ASSERT(!strcmp(ptr->next->prev->member, "Hello !\n"), "Member have an unexpected value.");
-	T_ASSERT(!(ptr->next->head == ptr), "Head pointer is not right");
+	T_ASSERT((ptr->next->head == ptr), "Head pointer is not right");
 	return TEST_SUCCESS;
 }
 
