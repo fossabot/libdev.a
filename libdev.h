@@ -73,7 +73,7 @@ typedef struct		s_list {
 
 typedef struct		s_singleton {
 	u_char				type;		// List type (ENUM)
-	t_list				*ptr;		// Actual pointer to the list
+	void				*ptr;		// Actual pointer to the list
 }					t_singleton;
 
 typedef struct		s_test {
@@ -99,7 +99,7 @@ size_t		list_size(t_list *list);
 void		*list_get(t_list *list, void *ptr, size_t size);
 
 // singleton.c
-t_list		*singleton_lists(u_char list_type, t_list *ptr);
+void		*singleton_lists(u_char list_type, void *ptr);
 
 // print.c
 void		error(char *str, ...);

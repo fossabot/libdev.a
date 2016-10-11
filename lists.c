@@ -76,6 +76,11 @@ t_list		*list_insert_before(t_list *org, t_list *ptr, void *member, size_t size)
 	if (!tmp->next) {
 		tmp->next = n_member;
 		n_member->prev = tmp;
+	} else if (ptr == org) {
+		n_member->next = org;
+		n_member->prev = 0x0;
+		org->prev = n_member;
+		org = n_member;
 	} else {
 		tmp2 = tmp->prev;
 		n_member->next = tmp;
@@ -103,7 +108,7 @@ void		*list_get(t_list *list, void *member, size_t size) {
 	if (!list)
 		return 0x0;
 	list_for_each(list, tmp, ptr) {
-		if (!memcmp(ptr, member, size))
+		if (!memcmp(ptr, member, size) && (size == tmp->size))
 			return ptr;
 	}
 	return 0x0;

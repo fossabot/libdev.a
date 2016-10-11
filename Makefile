@@ -12,6 +12,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(LIB) $(LFLAGS) $(NAME).a $(OBJS)
 
+test: $(NAME)
+	cd tests && make
+
 clean:
 	rm -f $(OBJS)
 

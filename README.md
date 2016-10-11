@@ -138,7 +138,7 @@ unsigned long long | u64_t | 64 | 8 | 0 to 18,446,744,073,709,551,615
 ## Singletons
 #### Definition
 ```C
-t_list		*singleton_lists(u8_t list_type, t_list *ptr);
+void		*singleton_lists(u8_t list_type, void *ptr);
 ```
 #### Example
 Singletons are a way to avoid global variables. The way it works is quite simple: You set a variable to a function, this function stores it, and you can retrieve the same variable later. Let's see an example:
@@ -158,6 +158,8 @@ singleton_lists(T_LISTS, list);
 list = singleton_lists(T_LISTS, NULL);
 ```
 In order to set / retrieve the list, you need an unique identifier. In this example, an enum is used, but you can actually use what you want. Some notes though: The id used needs to be unique, and in a range of a ```unsigned char```.
+
+Note: In this example, i use a ```t_list``` pointer, but you can pass any data you want to store. ```void *``` Magic !
 ## Print Helpers
 ### Info
 #### Definition
@@ -250,8 +252,9 @@ In this example, we are testing than ```i``` is equal to 1. In order to do that,
 > 	Bad initialization: Test: 'i == 1', File main.c:33
 ```
 As you see, the second parameter of the macro is the error returned if the test failed.
+The error message max length is 250.
 
-You _must_ finish all of your tests with the ```TEST_SUCCESS``` macro, in order to inform the test handler that all went well.
+You *must* finish all of your tests with the ```TEST_SUCCESS``` macro, in order to inform the test handler that all went well.
 
 ### Register a Test
 Your test is now declared, but you must register it to the test handler. In libdev.a, all the tests are registered in groups.
