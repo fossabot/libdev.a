@@ -23,6 +23,10 @@ git clone https://github.com/Ne02ptzero/libdev.a
 ```
 make
 ```
+### Test
+```
+make test
+```
 ### Use
 You'll need to include the header file in your project's code
 ```C
