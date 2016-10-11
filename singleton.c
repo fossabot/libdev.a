@@ -1,6 +1,6 @@
 #include <libdev.h>
 
-t_list		*singleton_lists(u_char list_type, t_list *ptr) {
+void		*singleton_lists(u_char list_type, void *ptr) {
 	t_list			*tmp;
 	t_singleton		*member;
 	static t_list	*index = 0x0;
