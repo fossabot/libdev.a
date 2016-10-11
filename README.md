@@ -2,7 +2,7 @@
 <img src=".pic.png" /><br />
 <img src="https://img.shields.io/badge/language-C-blue.svg"/> &nbsp;
 <img src="https://img.shields.io/badge/license-Apache--2.0-yellow.svg" /> &nbsp;
-<img src="https://img.shields.io/badge/build-passed-brightgreen.svg" />
+<img src="https://travis-ci.com/Ne02ptzero/libdev.a.svg?token=Ljxx7MA94JpJdnRDQunq&branch=master" />
 </p>
 
 -----------------------------------------------------------------
@@ -321,21 +321,37 @@ This will launch all the group test, one by one, then print a result.
 
 Example output:
 ```
-> ======================= GROUP Group TESTS =======================
-> Testing normal_test ...                             [ OK ]
-> Testing normal_test2 ...                            [ FAILED ]
-> 	Bad i: Test: 'i', File main.c:12
-> Testing normal_test3 ...                            [ FAILED ]
-> 	Bad i: Test: 'i', File main.c:19
-> Testing normal_test4 ...                            [ OK ]
-> Results: Total: 4, Success: 2, Failed: 2. COVERAGE: 50%
-> ======================= GROUP Group2 TESTS =======================
-> Testing normal_test5 ...                            [ FAILED ]
-> 	Bad i: Test: 'i', File main.c:33
-> Results: Total: 1, Success: 0, Failed: 1. COVERAGE: 0%
+================================== linked_list ===================================
+> Testing list_add_null ...                                                 [ OK ]
+> Testing list_add_member ...                                               [ OK ]
+> Testing list_add_member_head_list ...                                     [ OK ]
+> Testing list_add_member_test_multiples ...                                [ FAILED ]
+> 	Head pointer is not right: Test: '!(ptr->next->head == ptr)', File main.c:48
+> Testing list_for_each ...                                                 [ OK ]
+> Testing list_tail ...                                                     [ OK ]
+> Testing list_add_after ...                                                [ OK ]
+> Testing list_add_before ...                                               [ OK ]
+> Testing list_for_each_rev ...                                             [ OK ]
+> Testing list_size ...                                                     [ OK ]
+> Results: Total: 10, Success: 9, Failed: 1. COVERAGE: 90%
+===================================== types ======================================
+> Testing s8_t ...                                                          [ OK ]
+> Testing u8_t ...                                                          [ OK ]
+> Testing s16_t ...                                                         [ OK ]
+> Testing u16_t ...                                                         [ OK ]
+> Testing s32_t ...                                                         [ OK ]
+> Testing u32_t ...                                                         [ OK ]
+> Testing s64_t ...                                                         [ OK ]
+> Testing u64_t ...                                                         [ OK ]
+> Results: Total: 8, Success: 8, Failed: 0. COVERAGE: 100%
+=================================== singletons ===================================
+> Testing singleton_set ...                                                 [ OK ]
+> Testing singleton_get ...                                                 [ OK ]
+> Testing singleton_replace ...                                             [ OK ]
+> Results: Total: 3, Success: 3, Failed: 0. COVERAGE: 100%
 
-> ============================= RESULTS =============================
-> TESTS SUCCESS:	2
-> TESTS FAILED:		3
-> TOTAL COVERAGE:	40%
+==================================== RESULTS =====================================
+> TESTS SUCCESS:	20
+> TESTS FAILED:		1
+> TOTAL COVERAGE:	95%
 ```
