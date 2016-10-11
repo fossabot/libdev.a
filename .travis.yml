@@ -1,0 +1,5 @@
+language: C
+script: make
+sudo: false
+after_install:
+  - make test
