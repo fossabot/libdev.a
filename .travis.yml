@@ -1,3 +1,5 @@
+language: c
+
 env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
@@ -15,3 +17,7 @@ addons:
     notification_email: louis@ne02ptzero.me
     build_command:   "make && make test"
     branch_pattern: master
+
+script:
+  - make
+  - make test
