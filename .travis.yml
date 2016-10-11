@@ -13,7 +13,6 @@ addons:
   coverity_scan:
     project:
       name: "Ne02ptzero/libdev.a"
-      description: "Build submitted via Travis CI"
     notification_email: louis@ne02ptzero.me
     build_command:   "make && make test"
     branch_pattern: master
