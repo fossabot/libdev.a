@@ -90,6 +90,7 @@ typedef struct		s_test_results {
 
 
 /* FUNCTIONS DEFINITIONS */
+
 // lists.c
 t_list		*list_add_member(t_list *list, void *member, size_t size);
 t_list		*list_get_last(t_list *list);
