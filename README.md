@@ -2,7 +2,7 @@
 <img src=".pic.png" /><br />
 <img src="https://img.shields.io/badge/language-C-blue.svg"/> &nbsp;
 <img src="https://img.shields.io/badge/license-Apache--2.0-yellow.svg" /> &nbsp;
-<img src="https://travis-ci.com/Ne02ptzero/libdev.a.svg?token=Ljxx7MA94JpJdnRDQunq&branch=master" />&nbsp;
+<img src="https://travis-ci.org/Ne02ptzero/libdev.a.svg?branch=master" />&nbsp;
 <a href="https://scan.coverity.com/projects/ne02ptzero-libdev-a">
   <img alt="Coverity Scan Build Status"
        src="https://scan.coverity.com/projects/10482/badge.svg"/>
