@@ -22,10 +22,12 @@ void		register_test(char *group, char *(*fn_test)(void), char *name) {
 	ptr->group = malloc(strlen(group));
 	ptr->name = malloc(strlen(name));
 	L_ASSERT(ptr->group && ptr->name);
-	strcpy(ptr->group, group);
-	strcpy(ptr->name, name);
+	memcpy(ptr->group, group, strlen(group));
+	memcpy(ptr->name, name, strlen(name));
+	L_ASSERT(ptr->group && ptr->name);
 	ptr->fn_test = fn_test;
 	list_add(tests, ptr, sizeof(t_test));
+	free(ptr);
 	singleton_lists(TESTS_LIST, tests);
 }
 

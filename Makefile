@@ -13,7 +13,7 @@ $(NAME): $(OBJS)
 	$(LIB) $(LFLAGS) $(NAME).a $(OBJS)
 
 test: $(NAME)
-	cd tests && make
+	cd tests && make re
 
 clean:
 	rm -f $(OBJS)
