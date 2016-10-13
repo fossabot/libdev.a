@@ -19,11 +19,13 @@ void		register_test(char *group, char *(*fn_test)(void), char *name) {
 
 	ptr = malloc(sizeof(t_test));
 	L_ASSERT(ptr);
-	ptr->group = malloc(strlen(group));
-	ptr->name = malloc(strlen(name));
+	ptr->group = malloc(strlen(group) + 1);
+	ptr->name = malloc(strlen(name) + 1);
 	L_ASSERT(ptr->group && ptr->name);
 	memcpy(ptr->group, group, strlen(group));
 	memcpy(ptr->name, name, strlen(name));
+	ptr->name[strlen(name)] = 0;
+	ptr->group[strlen(group)] = 0;
 	L_ASSERT(ptr->group && ptr->name);
 	ptr->fn_test = fn_test;
 	list_add(tests, ptr, sizeof(t_test));
