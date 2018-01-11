@@ -19,6 +19,8 @@
 
 
 ## Usage & Installation
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FNe02ptzero%2Flibdev.a.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FNe02ptzero%2Flibdev.a?ref=badge_shield)
+
 ### Clone the repository
 ```
 git clone https://github.com/Ne02ptzero/libdev.a
@@ -363,3 +365,7 @@ Example output:
 > TESTS FAILED:		1
 > TOTAL COVERAGE:	95%
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FNe02ptzero%2Flibdev.a.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FNe02ptzero%2Flibdev.a?ref=badge_large)
